@@ -12,6 +12,11 @@ Each version carries its **version-ledger status**: **working** (observed in gam
 **untested** (built, not confirmed), **failed** (built but broken; the number was
 reclaimed), **scratch** (a hypothesis-test build that never held a real number).
 
+## 1.0.3 - 2026-08-27 - untested
+
+### Fixed
+- Settings reloaded after a save could come back as the values from game start rather than the ones just written. Save() writes the INI with plain file I/O, but the reload went back through INISettingCollection::ReadFromFile, which uses the Win32 profile APIs that PrivateProfileRedirector hooks and caches - so the reload was served a cache, and with the Redirector configured to flush that cache back to disk it could also overwrite saved settings between sessions. Settings are now parsed straight from the INI with plain file I/O and preferred over the collection, and the INI is never handed to the profile API in either direction. Same fix as Dragon's Eye Minimap 1.5.7, where the bug was first diagnosed end to end.
+
 ## 1.0.2 - 2026-08-27 - untested
 
 ### Changed
