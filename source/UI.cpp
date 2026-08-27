@@ -155,7 +155,8 @@ namespace UI
 					   "handed back for them, matching Ish's original potion at 100%%.");
 
 			NudgeableSlider("Gold cost per point", &goldCostPerPoint, 0.0F, 1000.0F, "%.0f", 10.0F);
-			HelpMarker("Gold charged per perk point actually refunded. 0 makes the respec completely "
+			HelpMarker("Gold charged per perk point actually refunded. Defaults to 500, so a "
+					   "ten-perk respec costs 5,000 gold. Set it to 0 to make respecs completely "
 					   "free, matching the original potion.");
 
 			ImGuiMCP::Toggle("Limit to once per in-game day", &limitOncePerDay);

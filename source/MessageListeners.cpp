@@ -1,4 +1,5 @@
 #include "Diagnostics.h"
+#include "Potion.h"
 #include "Settings.h"
 #include "UI.h"
 #include "utils/Logger.h"
@@ -35,10 +36,13 @@ void SKSEMessageListener(SKSE::MessagingInterface::Message* a_msg)
 		break;
 
 	case SKSE::MessagingInterface::kDataLoaded:
-		// Everything this mod needs (the skill perk trees, the player character) is available
-		// by kDataLoaded, so there is nothing else to wire up here beyond the last DevBench
-		// retry - unlike AutoDraw-SMF, this mod has no combat/animation event sink to attach.
-		logger::debug("kDataLoaded received");
+		// kDataLoaded is the first point the load order is available, so it is the earliest the
+		// Draught of Fate Unwound can be looked up out of PerkReallocation.esp. The plugin is
+		// optional - if it is absent this resolves to nothing, logs the fact once, and the
+		// settings page's Respec button carries the mod on its own exactly as before the plugin
+		// existed.
+		logger::debug("kDataLoaded received; resolving the Draught of Fate Unwound");
+		Potion::Init(/* a_lastAttempt = */ true);
 
 		// Last retry point - if DevBench still isn't found here, conclude it isn't installed
 		// and say so, rather than staying silent about it forever.

@@ -1,6 +1,6 @@
-{
+﻿{
     "name": "perkreallocation",
-    "version-string": "1.0.0",
+    "version-string": "1.0.3",
     "description": "A fresh, native C++ implementation of a perk-respec mechanic (not a port of Ish's Respec Mod / Nexus 1960) with a configurable SKSE Menu Framework settings page - scoped respec, partial refund percentage, gold cost and a once-per-day limit.",
     "homepage": "https://github.com/ApocryphaRealm/PerkReallocation-SMF",
     "license": "MIT",

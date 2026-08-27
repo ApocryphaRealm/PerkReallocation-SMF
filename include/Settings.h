@@ -51,11 +51,19 @@ namespace settings
 		inline float refundPercent = 100.0F;
 
 		// Gold charged per perk point actually refunded (not per point lost to the refund
-		// percentage above). 0 disables the cost entirely. This is the "genuine cost" option
-		// the task asked to consider - a simple, always-available economy sink rather than a
-		// dragon-soul cost (that's Ish's Souls to Perks' own mechanic, a different queued mod -
-		// see CLAUDE.md; this fork's own reasonable design is a plain gold cost instead).
-		inline float goldCostPerPoint = 0.0F;
+		// percentage above). 0 disables the cost entirely. A plain gold cost is this fork's own
+		// economy sink, rather than a dragon-soul cost - that is Ish's Souls to Perks' mechanic,
+		// a separate mod of this project's.
+		//
+		// DEFAULT 500, the author's call 2026-08-27 (raised from 0). A free respec makes perk choices
+		// weightless; 500 a point means a ten-perk respec costs 5,000 gold, which is a real
+		// decision at most points in a playthrough without being out of reach. The slider's
+		// ceiling is 1000 (see UI.cpp), so the default sits at half the maximum rather than at
+		// either extreme.
+		//
+		// This deliberately DIVERGES from the original mod, whose potion was free. Anyone who
+		// wants the original behaviour sets this to 0.
+		inline float goldCostPerPoint = 500.0F;
 
 		// When on, only one respec (regardless of scope) is allowed per in-game calendar day,
 		// tracked in memory only for this first version - see Respec.cpp's own comment on why
