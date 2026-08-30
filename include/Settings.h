@@ -55,7 +55,7 @@ namespace settings
 		// economy sink, rather than a dragon-soul cost - that is Ish's Souls to Perks' mechanic,
 		// a separate mod of this project's.
 		//
-		// DEFAULT 500, the author's call 2026-08-27 (raised from 0). A free respec makes perk choices
+		// DEFAULT 500, design call 2026-08-27 (raised from 0). A free respec makes perk choices
 		// weightless; 500 a point means a ten-perk respec costs 5,000 gold, which is a real
 		// decision at most points in a playthrough without being out of reach. The slider's
 		// ceiling is 1000 (see UI.cpp), so the default sits at half the maximum rather than at
